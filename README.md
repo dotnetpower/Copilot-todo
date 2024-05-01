@@ -1,5 +1,20 @@
 # Copilot-todo
-Copilot Studio Plugin 을 ASP.NET API 로 구현하여 연결
+Copilot Studio Plugin 을 ASP.NET API 로 구현하여 연결하는 예제
+.NET 8.0 을 이용한 todo list 앱을 Azure Web App 에 배포하고, Open API를 swagger 로 노출하여 Power Platform 의 Custom Connector 에 API 를 추가하여 관리되는 API 서비스를 Copilot 에서 특정 토픽(intent) 으로 호출하여 Legacy 및 사용자 정의 로직을 실행하도록 구현된 예제
+
+> [!Note]
+> 비지니스 도메인으로 나누어진 여러 API 는 API management 이용하여 API 관리 개선
+
+> 사용자의 발화문 또는 사용자 정보 상세는 Bot Framework 에 기반하므로 Activity, User, Channel 에 대한 시스템 변수 확인 필요
+
+> 사용자가 입력한 문장에서 일부분을 특정하기 위해서는 Prompt Engineering 필요 
+
+
+# Copilot Studio 플러그인 구조
+![](images/2024-05-01-18-15-46.png)
+
+Power Virtual Agent 가 Copilot Studio 의 일부로 포함되면서 이름이 Copilot Studio 로 변경.
+기존 Power virtual Agent(PVA) 는 커넥터를 통해 Power Automate 를 통해 다양한 작업 수행이 가능했으나 빌트인(Managed) 커텍터 이외 커스텀 커넥터, 봇 스킬등을 이용한 다양한 확장이 가능함.
 
 ## 필수 환경
 .net 8.0
