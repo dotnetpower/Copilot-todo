@@ -296,7 +296,7 @@ https://copilotstudio.microsoft.com/ 에서 Copilot 을 새로 만들거나 기�
 
 ![](images/2024-05-01-17-28-57.png)
 
-## 참고
+
 
 # 사례 1 - 지능형 고객 센터
 (Microsoft Copilot 으로 생성됨)
@@ -324,26 +324,12 @@ https://copilotstudio.microsoft.com/ 에서 Copilot 을 새로 만들거나 기�
 
 이러한 사례들은 Azure OpenAI Service를 활용하여 고객 서비스를 혁신하고 있으며, 미래에는 더 많은 기업들이 생성형 AI를 고객 센터에 도입할 것으로 기대됩니다! 😊
 
-[1]: https://azure.microsoft.com/ko-kr/products/ai-services/openai-service
-[2]: https://www.genesys.com/ko-kr/resources/five-stories-of-ai-in-customer-experience-an-asia-pacific-perspective
-[3]: https://news.microsoft.com/ko-kr/2024/04/22/business_ai_transformation/
-
 
 # 사례 2 - 콘텐츠 생성 및 고객 상담
 (Microsoft Copilot 으로 생성됨)
 
 ![](images/2024-05-01-15-29-33.png)
 [출처]: [콜 센터 데이터 추출 및 분석](https://learn.microsoft.com/ko-kr/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics)
-
-[1]: https://m.blog.naver.com/jooeun0502/221956294941 ""
-[2]: https://bing.com/search?q=%EC%9C%84%EB%82%B4%EC%9A%A9%EC%9D%84+github+%EC%9D%98+md+%ED%8C%8C%EC%9D%BC%EB%A1%9C+%EC%9E%91%EC%84%B1%ED%95%98%EB%8A%94+%EB%B0%A9%EB%B2%95 ""
-[3]: https://wooni-research.tistory.com/entry/%EA%B9%83%ED%97%88%EB%B8%8C-Github-%EA%B3%B5%EB%B6%80%ED%95%98%EA%B8%B0-8-%EC%86%8C%EA%B0%9C%EA%B8%80-READMEmd-%ED%8C%8C%EC%9D%BC-%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0 ""
-[4]: https://blog.naver.com/PostView.nhn?blogId=ycpiglet&logNo=222307838439 ""
-[5]: https://blog.naver.com/PostView.naver?blogId=jooeun0502&logNo=221956294941&directAccess=false ""
-[6]: https://gist.github.com/ihoneymon/652be052a0727ad59601 ""
-[7]: https://bing.com/search?q=github+md+%ED%8C%8C%EC%9D%BC+%EC%9E%91%EC%84%B1+%EB%B0%A9%EB%B2%95 ""
-[8]: https://backendcode.tistory.com/165 ""
-[9]: https://coding-factory.tistory.com/620 ""
 
 
 ## 메르세데스-벤츠(Mercedes-Benz)의 Azure OpenAI 서비스를 통한 차량 내 경험 개선
@@ -358,19 +344,45 @@ https://copilotstudio.microsoft.com/ 에서 Copilot 을 새로 만들거나 기�
 
 3. **문맥에 맞는 후속 질문**: 특정 명령이 필요한 일반적인 음성 어시스턴트와 달리, ChatGPT는 문맥을 유지하며 복잡한 질문이나 다중 대화를 처리할 수 있습니다. 운전자는 음성 어시스턴트로부터 자세하고 관련성 있는 답변을 받을 수 있습니다.
 
-4. **제3자 서비스 통합**: 메르세데스-벤츠는 ChatGPT 플러그인 생태계를 탐색하고 있습니다. 이를 통해 운전자는 자연어 명령을 사용하여 레스토랑 예약, 영화 티켓 예매 등과 같은 작업을 수행할 수 있으며, 도로에서의 편의성과 생산성을 더욱 향상시킬 수 있습니다¹[1].
+4. **제3자 서비스 통합**: 메르세데스-벤츠는 ChatGPT 플러그인 생태계를 탐색하고 있습니다. 이를 통해 운전자는 자연어 명령을 사용하여 레스토랑 예약, 영화 티켓 예매 등과 같은 작업을 수행할 수 있으며, 도로에서의 편의성과 생산성을 더욱 향상시킬 수 있습니다
 
-이러한 기능들은 운전자들의 차량 경험을 혁신적으로 개선하고 있으며, Azure OpenAI 서비스를 통해 메르세데스-벤츠는 최첨단 AI 모델을 활용하고 있습니다²[2]³[3]⁴[4].
+이러한 기능들은 운전자들의 차량 경험을 혁신적으로 개선하고 있으며, Azure OpenAI 서비스를 통해 메르세데스-벤츠는 최첨단 AI 모델을 활용하고 있습니다
 
 참고 출처:
-1. Mercedes-Benz Enhances Driver's Experience with Azure OpenAI Service
-2. Argon Systems - Mercedes-Benz Enhances Driver's Experience with Azure OpenAI Service
-3. 4TechViews - Mercedes-Benz Enhances Driver's Experience with Azure OpenAI Service
-4. [Microsoft Tech Community - Mercedes-Benz Enhances Driver's Experience with Azure OpenAI](https://techcommunity.microsoft.com/t5/azure-partner-community/mercedes-benz-enhances-drivers-experience-with-azure-openai/td-p/3857778)
+    1. Mercedes-Benz Enhances Driver's Experience with Azure OpenAI Service
+    2. Argon Systems - Mercedes-Benz Enhances Driver's Experience with Azure OpenAI Service
+    3. 4TechViews - Mercedes-Benz Enhances Driver's Experience with Azure OpenAI Service
+    4. [Microsoft Tech Community - Mercedes-Benz Enhances Driver's Experience with Azure OpenAI](https://techcommunity.microsoft.com/t5/azure-partner-community/mercedes-benz-enhances-drivers-experience-with-azure-openai/td-p/3857778)
 
 
 # 사례 3 - 지식 마이닝
 (Microsoft Copilot 으로 생성됨)
 
-TBD
+[31]: https://www.microsoft.com/ko-kr/ai/ai-customer-stories ""
+[32]: https://www.cloocus.com/general-availability-of-azure-openai-service-expands-access-to-large-advanced-ai-models-with-added-enterprise-benefits/ ""
+[33]: https://learn.microsoft.com/ko-kr/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics ""
+[34]: https://azure.microsoft.com/ko-kr/solutions/knowledge-mining/ ""
 
+물론입니다! **Azure AI**를 사용하여 **지식 마이닝**을 구현한 몇 가지 고객 사례를 한글로 정리해 드리겠습니다:
+
+1. **INSPIRE Environmental**: Azure AI를 활용하여 복잡한 해양 데이터 분석을 간소화하고 비용, 처리 시간 및 인력을 크게 줄였습니다¹[31].
+2. **Lexmark**: Azure AI를 통해 여러 파트너 범주에 엔터프라이즈 서비스를 제공하고 계약 및 반복 수익을 늘렸습니다¹[31].
+3. **Mercy**: Azure AI 솔루션을 사용하여 작업을 자동화하고 시간을 절약하며 운영 비용을 절감했습니다¹[31].
+4. **John Hancock**: Azure AI Bot Service를 활용하여 고객 지원 전화를 줄임으로써 비용 절감을 실현하고 규모를 확장했습니다¹[31].
+5. **Netlogic**: 생성된 회의 요약과 커뮤니케이션을 사용하여 생산성 문제를 극복하고 수익을 증대했습니다¹[31].
+6. **NC Fusion**: Dynamics 365 Customer Insights의 Copilot을 사용하여 수천 명의 가족에게 도달하는 광고 캠페인을 위한 커뮤니케이션을 신속하게 만들었습니다¹[31].
+7. **Atera**: Azure AI 서비스를 활용하여 IT 관리 플랫폼을 개선하고 고객 서비스를 개선했습니다¹[31].
+8. **Aprimo**: Azure OpenAI Service와 ChatGPT를 사용하여 마케터에게 확장 가능한 향상된 자동화를 제공하는 임베디드 생성형 AI 어시스턴트를 만들었습니다²[32].
+9. **AT&T**: Azure OpenAI Service를 사용하여 비즈니스 운영을 자동화하고 간소화함으로써 시간 및 비용 절감 그리고 가치를 제공했습니다¹[31].
+10. **Project Gutenberg**: AI가 생성한 책 내레이션을 사용하여 시각 장애인을 포함한 전 세계 커뮤니티에 약 5,000권의 무료 오디오북을 제공했습니다¹[31].
+
+이러한 사례들은 Azure AI와 OpenAI 서비스를 통해 다양한 분야에서 지식 마이닝을 성공적으로 구현한 것입니다.¹[31] ²[32] 더 많은 정보를 원하시면 [Microsoft AI 고객 사례 페이지](https://www.microsoft.com/ko-kr/ai/ai-customer-stories)를 참조하시기 바랍니다³[34].
+
+출처: Bing과의 대화, 2024. 5. 2.
+    (1) AI 고객 사례 | Microsoft AI. https://www.microsoft.com/ko-kr/ai/ai-customer-stories.
+    (2) Azure OpenAI 서비스를 통해 ChatGPT에 액세스하세요 - 클루커스. https://www.cloocus.com/general-availability-of-azure-openai-service-expands-access-to-large-advanced-ai-models-with-added-enterprise-benefits/.
+    (3) 정보 마이닝 | Microsoft Azure. https://azure.microsoft.com/ko-kr/solutions/knowledge-mining/.
+    (4) Azure OpenAI 서비스, Speech Services 및 언어 서비스를 사용하여 콜 .... https://learn.microsoft.com/ko-kr/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics.
+
+
+# 참고
