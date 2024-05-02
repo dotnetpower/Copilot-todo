@@ -1,4 +1,6 @@
 # Copilot-todo
+![](https://github.com/dotnetpower/Copilot-todo/actions/workflows/main_copilottodoapp1.yml/badge.svg)
+
 Copilot Studio Plugin 을 ASP.NET API 로 구현하여 연결하는 예제
 .NET 8.0 을 이용한 todo list 앱을 Azure Web App 에 배포하고, Open API를 swagger 로 노출하여 Power Platform 의 Custom Connector 에 API 를 추가하여 관리되는 API 서비스를 Copilot 에서 특정 토픽(intent) 으로 호출하여 Legacy 및 사용자 정의 로직을 실행하도록 구현된 예제
 
@@ -147,7 +149,7 @@ components:
 [![Video Label](https://img.youtube.com/vi/pq34V_V5j18/0.jpg)](https://youtu.be/pq34V_V5j18?t=1497)
 
 
-## 필수 환경
+## TodoApp 작성 및 배포를 위한 필수 환경
 .net 8.0
 vscode
 vscode Azure Tools extension
