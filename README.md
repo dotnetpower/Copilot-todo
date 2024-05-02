@@ -29,7 +29,7 @@ openai.com 에서 사용되는 [플러그인 정의](https://github.com/openai/p
 <details>
     <summary>openapi.yaml</summary>
 
-    ```
+```
 openapi: 3.0.1
 info:
   title: TODO Plugin
@@ -123,7 +123,7 @@ components:
           type: integer
           description: The index of the todo to delete.
           required: true
-    ```
+```
 </details>
 
 ## 빌트인 플러그인(Microsoft Copilot Studio 플러그인)과 커스텀 플러그인(커넥터 플러그인)의 차이
