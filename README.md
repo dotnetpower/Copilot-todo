@@ -147,7 +147,6 @@ components:
 [![Video Label](https://img.youtube.com/vi/pq34V_V5j18/0.jpg)](https://youtu.be/pq34V_V5j18?t=1497)
 
 
-```
 ## 필수 환경
 .net 8.0
 vscode
