@@ -255,8 +255,6 @@ https://copilotstudio.microsoft.com/ 에서 Copilot 을 새로 만들거나 기�
 
 ![](images/2024-05-01-17-10-53.png)
 
-![](images/2024-05-01-17-11-38.png)
-
 ![](images/2024-05-01-17-14-37.png)
 > 이 단계에서 작업이 보이지 않으면 작업으로 이동해서 **이름** 설정이 정상적인지 확인필요.
 
@@ -379,10 +377,11 @@ https://copilotstudio.microsoft.com/ 에서 Copilot 을 새로 만들거나 기�
 이러한 사례들은 Azure AI와 OpenAI 서비스를 통해 다양한 분야에서 지식 마이닝을 성공적으로 구현한 것입니다.¹[31] ²[32] 더 많은 정보를 원하시면 [Microsoft AI 고객 사례 페이지](https://www.microsoft.com/ko-kr/ai/ai-customer-stories)를 참조하시기 바랍니다³[34].
 
 출처: Bing과의 대화, 2024. 5. 2.
-    (1) AI 고객 사례 | Microsoft AI. https://www.microsoft.com/ko-kr/ai/ai-customer-stories.
-    (2) Azure OpenAI 서비스를 통해 ChatGPT에 액세스하세요 - 클루커스. https://www.cloocus.com/general-availability-of-azure-openai-service-expands-access-to-large-advanced-ai-models-with-added-enterprise-benefits/.
-    (3) 정보 마이닝 | Microsoft Azure. https://azure.microsoft.com/ko-kr/solutions/knowledge-mining/.
-    (4) Azure OpenAI 서비스, Speech Services 및 언어 서비스를 사용하여 콜 .... https://learn.microsoft.com/ko-kr/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics.
+1. AI 고객 사례 | Microsoft AI. https://www.microsoft.com/ko-kr/ai/ai-customer-stories.
+2. Azure OpenAI 서비스를 통해 ChatGPT에 액세스하세요 - 클루커스. https://www.cloocus.com/general-availability-of-azure-openai-service-expands-access-to-large-advanced-ai-models-with-added-enterprise-benefits/.
+3. 정보 마이닝 | Microsoft Azure. https://azure.microsoft.com/ko-kr/solutions/knowledge-mining/.
+4. Azure OpenAI 서비스, Speech Services 및 언어 서비스를 사용하여 콜 .... https://learn.microsoft.com/ko-kr/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics.
 
 
 # 참고
+- [Microsoft Copilot Studio 플러그인 아키텍처](https://learn.microsoft.com/ko-kr/microsoft-copilot-studio/copilot-plugins-architecture)
