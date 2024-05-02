@@ -3,19 +3,151 @@ Copilot Studio Plugin 을 ASP.NET API 로 구현하여 연결하는 예제
 .NET 8.0 을 이용한 todo list 앱을 Azure Web App 에 배포하고, Open API를 swagger 로 노출하여 Power Platform 의 Custom Connector 에 API 를 추가하여 관리되는 API 서비스를 Copilot 에서 특정 토픽(intent) 으로 호출하여 Legacy 및 사용자 정의 로직을 실행하도록 구현된 예제
 
 > [!Note]
-> 비지니스 도메인으로 나누어진 여러 API 는 API management 이용하여 API 관리 개선
-
-> 사용자의 발화문 또는 사용자 정보 상세는 Bot Framework 에 기반하므로 Activity, User, Channel 에 대한 시스템 변수 확인 필요
-
-> 사용자가 입력한 문장에서 일부분을 특정하기 위해서는 Prompt Engineering 필요 
+> - 비지니스 도메인으로 나누어진 여러 API 는 API management 이용하여 API 관리 개선
+> - 사용자의 발화문 또는 사용자 정보 상세는 Bot Framework 에 기반하므로 Activity, User, Channel 에 대한 시스템 변수 확인 필요
+> - 사용자가 입력한 문장에서 일부분을 특정하기 위해서는 [엔티티](https://learn.microsoft.com/ko-kr/microsoft-copilot-studio/advanced-entities-slot-filling) 사용 또는 Prompt Engineering 필요
 
 
-# Copilot Studio 플러그인 구조
+# Copilot Studio 플러그인 종류 및 구조
 ![](images/2024-05-01-18-15-46.png)
 
 Power Virtual Agent 가 Copilot Studio 의 일부로 포함되면서 이름이 Copilot Studio 로 변경.
 기존 Power virtual Agent(PVA) 는 커넥터를 통해 Power Automate 를 통해 다양한 작업 수행이 가능했으나 빌트인(Managed) 커텍터 이외 커스텀 커넥터, 봇 스킬등을 이용한 다양한 확장이 가능함.
+- 텍스트 기반 No Code/Low Code 로 개발하기 위해서는 커스텀 커넥터 사용 권장
+- 복잡한 시나리오 및 [스트리밍](https://github.com/dotnetpower/azfuncbot), 다양한 UI 등을 지원하기 위해서는 [Bot Skill](https://learn.microsoft.com/ko-kr/microsoft-copilot-studio/configuration-add-skills) 사용 권장
 
+# Microsoft Copilot의 플러그인 구조와 Todo 플러그인의 위치
+![](images/2024-05-02-09-14-59.png)
+ASP.NET API 로 구현된 TodoApp 은 Azure Web App 에 배포시 Data/AI Layer 에 배포가 되고, Power Platform의 Dataverse API 에 등록이 되며 커스텀 커넥터의 속성에 AI 플러그인 레지스트리에 등록을 위한 기본 정보가 입력됨.
+현재 기준으로 명시적 플러그인은 Copilot Studio Plugins, 파워플랫폼 커넥터를 통한 플러그인 방식이 존재 하며, OpenAI.com 에서 사용되는 yaml 형태의 플러그인 정의를 위해서는 API 정의 또는 코드에 API 정의를 상세하게 작성 필요.
+
+OpenAI에서는 플러그인 정의에서 사용자 발화문이 전달이 되어야 하지만 Copilot Studio 에서는 토픽과 변수, 조건등을 지정해 미세한 조정을 통해 좀더 세부적인 정보를 추출/가공 가능
+
+openai.com 에서 사용되는 [플러그인 정의](https://github.com/openai/plugins-quickstart/blob/main/openapi.yaml) 방식 예시
+<details>
+    <summary>openapi.yaml</summary>
+
+    ```
+openapi: 3.0.1
+info:
+  title: TODO Plugin
+  description: A plugin that allows the user to create and manage a TODO list using ChatGPT. If you do not know the user's username, ask them first before making queries to the plugin. Otherwise, use the username "global".
+  version: 'v1'
+servers:
+  - url: http://localhost:5003
+paths:
+  /todos/{username}:
+    get:
+      operationId: getTodos
+      summary: Get the list of todos
+      parameters:
+      - in: path
+        name: username
+        schema:
+            type: string
+        required: true
+        description: The name of the user.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getTodosResponse'
+    post:
+      operationId: addTodo
+      summary: Add a todo to the list
+      parameters:
+      - in: path
+        name: username
+        schema:
+            type: string
+        required: true
+        description: The name of the user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addTodoRequest'
+      responses:
+        "200":
+          description: OK
+    delete:
+      operationId: deleteTodo
+      summary: Delete a todo from the list
+      parameters:
+      - in: path
+        name: username
+        schema:
+            type: string
+        required: true
+        description: The name of the user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deleteTodoRequest'
+      responses:
+        "200":
+          description: OK
+
+components:
+  schemas:
+    getTodosResponse:
+      type: object
+      properties:
+        todos:
+          type: array
+          items:
+            type: string
+          description: The list of todos.
+    addTodoRequest:
+      type: object
+      required:
+      - todo
+      properties:
+        todo:
+          type: string
+          description: The todo to add to the list.
+          required: true
+    deleteTodoRequest:
+      type: object
+      required:
+      - todo_idx
+      properties:
+        todo_idx:
+          type: integer
+          description: The index of the todo to delete.
+          required: true
+    ```
+</details>
+
+## 빌트인 플러그인(Microsoft Copilot Studio 플러그인)과 커스텀 플러그인(커넥터 플러그인)의 차이
+### Microsoft Copilot Studio 플러그인
+![](images/2024-05-02-10-03-02.png)
+
+대화 플러그인에서 [작업 호출]-[커넥터]-[MSN Weather] 와 같이 빌트인 플러그인을 추가 하여 사용하는 경우 트리거의 **대화 스타터** 에 예시 발화문 (예: 오늘 서울 날씨 알려줘) 을 통해 빌트인 플러그인이 호출됨
+
+### 커넥터 플러그인
+![](images/2024-05-02-10-03-23.png)
+
+커스텀 커넥터를 통해 유사하게 등록이 될 수 있으며, 발화문이 5개로 제한적인 **대화 스타터** 보다 **토픽** 에서 다양한 예시문(한글 기준 20문장 이상)을 통해 해당 플러그인으로 유입 조정이 쉬움
+**토픽** 은 의도(intent) 로써 예시문을 통해 [의도 인식](https://learn.microsoft.com/ko-kr/azure/ai-services/speech-service/intent-recognition)이 되며 하나의 Copilot 에 토픽이 많아질 수록 인식율이 낮아질 수 있음. 
+
+"오늘 서울 날씨를 알려줘" 와 같이 특정한 의도에서 지역을 뜻하는 `서울` 과 같은 알려진 단어는 pre-built entity 에 등록이 되어 있지만 "보험 상품개발팀의 OOO의 연락처을 알려줘" 에서 `상품개발팀` 과 같이 특정 도메인에 한정된 단어의 경우 Copilot Studio 의 `엔티티` 에 등록을 하여 `의도 인식`과 함께 해당 엔티티 데이터가 포함되어 다음노드 에서 참조하기 용이함
+
+## 플러그인으로써의 OpenAPI 
+자연어를 통한 OpenAPI 를 호출하기 위해서는 하나의 함수가 하나의 플러그인 형태가 됨.
+
+'할일추가', '할일목록', '할일완료' 를 구현하기 위해서는 3개의 플러그인이 등록이 되어야함.
+
+## Copilot 이 플러그인을 호출하는 과정 상세 Youtube 영상(OpenAI Plugin Action 예시) 
+[![Video Label](https://img.youtube.com/vi/pq34V_V5j18/0.jpg)](https://youtu.be/pq34V_V5j18?t=1497)
+
+
+```
 ## 필수 환경
 .net 8.0
 vscode
